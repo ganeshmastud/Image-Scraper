@@ -1,0 +1,19 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Search for Image{% endblock %}
+
+{% block content %}
+    <script>
+
+        function alertText(){
+         alert("Please wait while we downloading the images for you")
+        }
+    </script>
+    <div class="form " style="text-align:center">
+     <h1>Search for Image </h1>
+        <form action="/showimg" method="POST">
+            <input type="text" name="keyword" id="content">
+            <input type="submit" onclick="alertText()" value="Search">
+        </form>
+    </div>
+{% endblock %}

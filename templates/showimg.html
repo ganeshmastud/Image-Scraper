@@ -1,0 +1,41 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}{{ keyword }} Images{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="table-users">
+            <div class="jumbotron">Some of the scrapped images:</div>
+                <table>
+                    <tbody>
+
+                    {% for i in range(0,srch_img_len,4) %}
+
+                            <tr>
+                                {% if i+4 > srch_img_len-1 %}
+
+                                    {% for j in range(i, srch_img_len-1) %}
+                                    <td width="400">
+                                        <img width="300" height="300" src="{{ url_for('static', filename=keyword+'/'+srch_img[j]) }}" alt="User Image">
+                                    </td>
+                                {% endfor %}
+                                {% else %}
+
+                                    {% for j in range(i, i+4) %}
+                                    <td width="400">
+                                        <img width="300" height="300" src="{{ url_for('static', filename=keyword+'/'+srch_img[j]) }}" alt="User Image">
+                                    </td>
+                                {% endfor %}
+                                {% endif %}
+
+
+                            </tr>
+                    {% endfor %}
+                    </tbody>
+
+
+            </table>
+
+        </div>
+    </div>
+{% endblock %}
